@@ -1337,7 +1337,9 @@
             sound._node.gain.linearRampToValueAtTime(to, end);
           }
 
-          self._startFadeInterval(sound, from, to, len, ids[i], typeof id === 'undefined');
+          if ( !self._webAudio ) {
+            self._startFadeInterval( sound, from, to, len, ids[i], typeof id === 'undefined' );
+          }
         }
       }
 
